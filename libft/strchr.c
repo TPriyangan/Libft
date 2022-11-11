@@ -2,7 +2,7 @@
 #include <string.h>
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -18,8 +18,8 @@ int	main(void)
 {
 	char	*tab;
 
-	tab = "abcefghijklmpqrstuvwxyz";
-	printf("%d\n", *ft_strchr(tab , 'e'));
+	tab = "aebcfghijklmpqrstuvwxyez";
+	printf("%p\n", ft_strchr(tab , 'e'));
 
-	printf("%d\n", *strchr(tab , 'o'));
+	printf("%p\n", strchr(tab , 'e'));
 }

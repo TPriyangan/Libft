@@ -13,39 +13,42 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int	ft_search_c_in_string(char *string, char c)
+{
+	int	i;
+
+	i	= 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int	i;
-	int	j;
-	int	count;
-	int	*s1dup;
+	int	taille;
+	char	*s1trim;
 
 	i = 0;
+	taille = 0;
 	while (s1[i])
 	{
-		j = 0;
-		while (set[j])
-		{
-			if (set[j] ==(s1[i]))
-			{
-				count	= count + 1;
-				break;
-			}
-			j++;
-		}
+		if (ft_search_c_in_string(set,s1[i]) == 0)
+		       taille++;
 		i++;
 	}
-	s1dup = (char*)malloc(count * sizeof(s1));
+	s1trim = (char *)malloc(taille * sizeof(s1));
 	i = 0;
-	while ( s1[i])
+	while (i < taille)
 	{
-		j = 0;
-		while(set[j])
-		{
-			while (set[j] == s1[i])
-				j++;
-
-
-		}
+		if (ft_search_c_in_string(set,s1[i]) == 1)
+			s1trim[i] = s1[i];
+		i++;
 	}
+	s1trim[i] = '\0';
+	return (s1trim);
 }

@@ -1,7 +1,7 @@
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+/*char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -17,6 +17,26 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		i++;
 	}
 	return(NULL);
+}*/
+
+char    *ft_strnstr(const char *big, const char *little, size_t len)
+{
+        size_t  i;
+        size_t  j;
+
+        i = 0;
+        if (!little)
+                return((char *)(big));
+        while (i < len)
+        {
+                j = 0;
+                while (big [i +j] == little[j])
+                j++;
+		if (little[j] == '\0')
+			return((char *)(big + i));
+		i++;
+        }
+        return (NULL);
 }
 
 int	main(void)

@@ -5,50 +5,84 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:59:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/14 17:03:41 by tpriyang         ###   ########.fr       */
+/*   Created: 2022/11/15 11:07:53 by tpriyang          #+#    #+#             */
+/*   Updated: 2022/11/15 14:54:38 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
-int	ft_search_c_in_string(char *string, char c)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
 
-	i	= 0;
-	while (s[i])
+	i = 0;
+	if (!little)
+		return((char *)big);
+	while (i < len)
 	{
-		if (s[i] == c)
-			return (1);
+		j = 0;
+		while (big [i +j] == little[j])
+		j++;
+		if (little[j] == '\0')
+			return((char *)(big + i));
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	int	t_s1;
+	int	t_set;
 	int	i;
-	int	taille;
-	char	*s1trim;
+
+	int	debut;
+	int	fin;
+
+	char	*ptr;
 
 	i = 0;
-	taille = 0;
-	while (s1[i])
+	t_s1 = 0;
+	t_set = 0;
+	while (s1[t_s1])
+		t_s1++;
+	printf("t_s1 :%d\n" , t_s1);
+	while (set[t_set])
+		t_set++;
+	if (ft_strnstr(s1, set,t_set) != NULL)
+		debut = t_set;
+	else
+		debut = 0;
+	printf("Debut :%d\n" , debut);
+	if (ft_strnstr(s1+ debut, set, t_set) != NULL)
+		fin = t_s1 - t_set;
+	else
+		fin = t_s1;
+	printf("Fin :%d\n" , fin);
+	ptr = (char *)malloc((fin-debut)*sizeof(char));
+	printf("calcul :%d\n" , fin- debut);
+	while (i + debut < fin)
 	{
-		if (ft_search_c_in_string(set,s1[i]) == 0)
-		       taille++;
+		ptr[i] = s1[i+ debut];
+		printf("i :%d\n" , i);
 		i++;
 	}
-	s1trim = (char *)malloc(taille * sizeof(s1));
-	i = 0;
-	while (i < taille)
-	{
-		if (ft_search_c_in_string(set,s1[i]) == 1)
-			s1trim[i] = s1[i];
-		i++;
-	}
-	s1trim[i] = '\0';
-	return (s1trim);
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+int	main(void)
+{
+	char	*phrase;
+	char	*trimmeur;
+	char	*receptacle;
+
+	phrase = "trimjetrimletrucatrim";
+	trimmeur = "";
+	receptacle = ft_strtrim(phrase, trimmeur);
+	printf("%s\n", receptacle);
 }

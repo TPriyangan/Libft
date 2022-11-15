@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:26:38 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/14 16:40:40 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/15 10:06:24 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -34,10 +34,11 @@ void	*ft_memmove(void *dest,const void *src, size_t n)
 
 int	main(void)
 {
-
-	char	*jeanJacques;
-
-	jeanJacques= memmove("jean" ,"jacques", 3);
+	/*char	*str1;
+	str1 = "0123456789";*/
+	char	str1[] = "0123456789";
 	/*printf("%p\n", ft_memmove(jean, jacques, 3));*/
-	printf("%s\n", jeanJacques);
+	/*ft_memmove(str1+5, str1+3, 7);*/
+	ft_memmove(str1+2, str1+5 , 10);
+	printf("%s\n", str1);
 }

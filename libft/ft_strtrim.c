@@ -5,84 +5,169 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 11:07:53 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/15 14:54:38 by tpriyang         ###   ########.fr       */
+/*   Created: 2022/11/16 09:57:56 by tpriyang          #+#    #+#             */
+/*   Updated: 2022/11/16 12:07:21 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-char	*ft_strnstr(const char *big, const char *little, size_t len)
+char	*check_uniques(char *chaine)
 {
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
+	int	k;
+	int	compteur;
+	char	*uniques;
 
 	i = 0;
-	if (!little)
-		return((char *)big);
-	while (i < len)
+	while (chaine[i])
+		i++;
+	uniques = (char*)malloc( i * sizeof(chaine));
+	k = 0;
+	i = 0;
+	while (chaine[i])
 	{
 		j = 0;
-		while (big [i +j] == little[j])
-		j++;
-		if (little[j] == '\0')
-			return((char *)(big + i));
+		compteur =0;
+		while (chaine[i+j])
+		{
+			if (chaine[i] == chaine[i+j])
+				compteur++;
+			j++;
+		}
+		if (compteur == 1)
+		{
+			uniques[k] = chaine[i];
+			k++;
+		}
 		i++;
 	}
-	return (NULL);
+	uniques[k] = '\0';
+	return (uniques);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+/*int	main(void)
 {
-	int	t_s1;
-	int	t_set;
-	int	i;
+	char	*test;
+	test = check_uniques("jeanclaude");
+	printf("%s\n" , test);
+}*/
 
-	int	debut;
+/*char    *ft_strtrim(char const *s1, char const *set)
+{
+        int     t_s1;
+        int     t_set;
+        int     i;
+
+        int     debut;
+        int     fin;
+
+        char    *ptr;
+
+        i = 0;
+        t_s1 = 0;
+        t_set = 0;
+        while (s1[t_s1])
+                t_s1++;
+        printf("t_s1 :%d\n" , t_s1);
+        while (set[t_set])
+                t_set++;
+        if (ft_strnstr(s1, set,t_set) != NULL)
+                debut = t_set;
+        else
+                debut = 0;
+        printf("Debut :%d\n" , debut);
+        if (ft_strnstr(s1+ debut, set, t_set) != NULL)
+                fin = t_s1 - t_set;
+        else
+                fin = t_s1;
+        printf("Fin :%d\n" , fin);
+        ptr = (char *)malloc((fin-debut)*sizeof(char));
+        printf("calcul :%d\n" , fin- debut);
+        while (i + debut < fin)
+        {
+                ptr[i] = s1[i+ debut];
+                printf("i :%d\n" , i);
+                i++;
+        }
+        ptr[i] = '\0';
+        return (ptr);
+}*/
+
+int    ft_strchr(const char *s, int c)
+{
+        int     i;
+
+        i = 0;
+        while (s[i] != '\0')
+        {
+                if (s[i] == c)
+                        return (1);
+                i++;
+        }
+        return (0);
+}
+
+
+char    *ft_strtrim(char const *s1, char const *set)
+{
+        int     t_s1;
+        int     t_set;
+        int     i;
+	int	k;
+	char	*reset;
+	int	deb;
 	int	fin;
+	char	*trimed;
 
-	char	*ptr;
-
-	i = 0;
-	t_s1 = 0;
-	t_set = 0;
-	while (s1[t_s1])
+	while(s1[t_s1])
 		t_s1++;
-	printf("t_s1 :%d\n" , t_s1);
-	while (set[t_set])
+	reset = check_uniques((char *)set);
+	while (reset[t_set])
 		t_set++;
-	if (ft_strnstr(s1, set,t_set) != NULL)
-		debut = t_set;
-	else
-		debut = 0;
-	printf("Debut :%d\n" , debut);
-	if (ft_strnstr(s1+ debut, set, t_set) != NULL)
-		fin = t_s1 - t_set;
-	else
-		fin = t_s1;
-	printf("Fin :%d\n" , fin);
-	ptr = (char *)malloc((fin-debut)*sizeof(char));
-	printf("calcul :%d\n" , fin- debut);
-	while (i + debut < fin)
+	i = 0;
+	deb = i;
+	while ( i < t_set)
 	{
-		ptr[i] = s1[i+ debut];
-		printf("i :%d\n" , i);
+		if (ft_strchr(reset, s1[i]))
+			deb = i;
+		else
+			break;
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	i = t_s1;
+	fin = i;
+	while (i > t_s1 -t_set)
+	{
+		if (ft_strchr(reset, s1[i]))
+			fin = i;
+		else
+			break;
+		i--;
+	}
+	trimed = (char *)malloc((fin - deb) * sizeof(s1));
+	k = 0;
+	while (deb < fin)
+	{
+		trimed[k] = s1[deb + k];
+		k++;
+	}
+	trimed[k] = '\0';
+	return (trimed);
 }
 
-int	main(void)
+int     main(void)
 {
-	char	*phrase;
-	char	*trimmeur;
-	char	*receptacle;
+        char    *phrase;
+        char    *trimmeur;
+        char    *receptacle;
 
-	phrase = "trimjetrimletrucatrim";
-	trimmeur = "";
-	receptacle = ft_strtrim(phrase, trimmeur);
-	printf("%s\n", receptacle);
+        phrase = "trimjetrimletrucatrim";
+        trimmeur = "kht";
+        receptacle = ft_strtrim(phrase, trimmeur);
+        printf("%s\n", receptacle);
 }
+

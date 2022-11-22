@@ -6,34 +6,34 @@
 #    By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 09:42:00 by tpriyang          #+#    #+#              #
-#    Updated: 2022/11/22 14:29:37 by tpriyang         ###   ########.fr        #
+#    Updated: 2022/11/22 14:47:32 by tpriyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CC = gcc
-FLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 AR = ar rcs
 
 RM = rm -f
 
-SRC = $(wildcard *.c)
+SRCS = $(wildcard *.c)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJS)
 
 .PHONY: clean fclean re
 
 clean:
 	$(RM) *.o
 
-fclean: clean
+fclean:
 	$(RM) $(NAME) *.o
 
 re: $(fclean) all

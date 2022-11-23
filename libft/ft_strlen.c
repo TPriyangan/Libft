@@ -6,16 +6,18 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:17:14 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/22 15:53:07 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:08:18 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long unsigned int	ft_strlen(const char *c)
 {
-	int	i;
+	long unsigned int	i;
 
 	i = 0;
-	while (c[i] != '\n')
+	if (!c)
+		return(0);
+	while (c[i])
 		i++;
 	return(i);
 }

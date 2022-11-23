@@ -6,15 +6,13 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:34:33 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/22 11:37:19 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 11:02:15 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_nbr_mots(char const *s, char c)
+static int	ft_nbr_mots(char const *s, char c)
 {
 	int	i;
 	int	mot;
@@ -35,7 +33,7 @@ int	ft_nbr_mots(char const *s, char c)
 	return (mot);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	taille;
 	size_t	i;
@@ -55,9 +53,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	ptr[i] = '\0';
 	return(ptr);
-}
+}*/
 
-unsigned int	ft_lettres(char const *s, unsigned int start, char c)
+static unsigned int	ft_lettres(char const *s, unsigned int start, char c)
 {
 	unsigned int	i;
 
@@ -79,23 +77,19 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 
 	mots = 0;
-	printf("nmbrmots :%d\n", ft_nbr_mots(s,c));
 	ptr = (char **)malloc((ft_nbr_mots(s,c) + 1) * sizeof(char **));
 	i = 0;
-	printf("mots :%d\n", mots);
 	while(s[i])
 	{
 		while(s[i] == c && s[i])
 			i++;
 		if (s[i])
 		{
-			printf("taillemalloc :%d\n", ft_lettres(s, i, c));
 			ptr[mots] = (char *)malloc((ft_lettres(s, i, c) + 1) * sizeof(char *));
 			if (!ptr[mots])
 				free(ptr[mots]);
 			else
 				ptr[mots] = ft_substr(s, i, ft_lettres(s, i , c));
-			printf("ptr[mots] :%s\n" , ptr[mots]);
 			i = i + ft_lettres(s, i ,c); 
 			mots++;
 		}
@@ -104,11 +98,11 @@ char	**ft_split(char const *s, char c)
 	return (ptr);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*test= "s0kf00ssskssssskpskjsksksssskjj1j1s2fhh22s3jkgg33s444s555s666s777s888s999s101010";
 	char	**receptacle;
 
 	receptacle = ft_split(test, 's');
 	printf("result: %s %s %s %s\n", receptacle[0] , receptacle[1], receptacle[2], receptacle[10]);
-}
+}*/

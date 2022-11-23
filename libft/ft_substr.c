@@ -6,12 +6,11 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:31:40 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/14 14:43:04 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:46:05 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -37,13 +36,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*alphabet;
-	/*char	*receptacleft;*/
 	
 	alphabet = "";
-	/*receptacleft = ft_substr(alphabet , 30 ,5);*/
 	printf("%p\n" , ft_substr(alphabet, 4, 350));
-	/*printf("%s\n" , receptacleft);*/
-}
+}*/

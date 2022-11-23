@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
+
 #include "libft.h"
 
 int	ft_atoi(const char *nptr)
@@ -27,11 +26,11 @@ int	ft_atoi(const char *nptr)
 	return (retour * signe);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*test;
 
 	test= "   568d75";
 	printf("%d\n", ft_atoi(test));
 	printf("%d\n", atoi(test));
-}
+}*/

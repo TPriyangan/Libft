@@ -6,16 +6,17 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:01:57 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/21 16:04:32 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:44:33 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c, int fd)
+static void	ft_putchar(char c, int fd)
 {
 	write (fd, &c, 1);
 }
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	int	diviseur;
@@ -44,7 +45,7 @@ void	ft_putnbr_fd(int n, int fd)
 }
 
 
-#include <stdio.h>
+/*
 int	main(void)
 {
 	ft_putnbr_fd(1, 1);
@@ -53,4 +54,4 @@ int	main(void)
 	printf("\n");
 	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");
-}
+}*/

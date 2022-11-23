@@ -6,19 +6,11 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:02:38 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/22 13:19:54 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:47:35 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <stdlib.h>
 
-char	ft_toupper(unsigned int i,char c)
-{
-	
-	if ( c >= 'a' && c <= 'z')
-		c = c -20+i;
-	return (c);
-}
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -42,8 +34,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (ptr);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	printf("%s\n",ft_strmapi("salutationJoris",ft_toupper));
-}
+}*/
 

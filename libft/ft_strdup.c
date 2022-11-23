@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strdup.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:10:22 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/14 12:53:54 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:40:35 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -34,7 +32,7 @@ char	*ft_strdup(const char *s)
 	return (dup);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*alphabet;
 	char	*vide;
@@ -45,4 +43,4 @@ int	main(void)
 	printf("strdup:   %s\n", strdup(alphabet));
 	printf("ft_strdup: %s\n", ft_strdup(vide));
 	printf("strdup:   %s\n", strdup(vide));
-}
+}*/

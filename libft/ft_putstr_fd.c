@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:45:31 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/21 14:53:08 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:24:24 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-int	main(void)
+/*int	main(void)
 {
 	ft_putstr_fd("jeanpierrevaalaplage" ,2);
-}
+}*/

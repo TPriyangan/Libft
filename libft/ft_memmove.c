@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:26:38 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/15 10:06:24 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:05:14 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest,const void *src, size_t n)
 {
@@ -32,13 +31,13 @@ void	*ft_memmove(void *dest,const void *src, size_t n)
 	return(dest);
 }
 
-int	main(void)
-{
+/*int	main(void)
+{*/
 	/*char	*str1;
 	str1 = "0123456789";*/
 	char	str1[] = "0123456789";
 	/*printf("%p\n", ft_memmove(jean, jacques, 3));*/
 	/*ft_memmove(str1+5, str1+3, 7);*/
-	ft_memmove(str1+2, str1+5 , 10);
+/*	ft_memmove(str1+2, str1+5 , 10);
 	printf("%s\n", str1);
-}
+}*/

@@ -1,34 +1,39 @@
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	while ((int*)(s1+i) && (int*)(s2+i) && i < n)
+	if (n == 0)
+		return(0);
+	while(i < n)
 	{
-		if ((char*)(s1+i) == (char*)(s2+i))
-			i++;
+		if (((char*)s1)[i] != ((char *)s2)[i])
+		{
+			return((int)(((char *)s2)[i] - ((char *)s1)[i]));
+		}
 		else
-			break;
-		/*{
-			if (*(char*)(s1+i) < *(char*)(s2+i))
-				return(-1);
-			else
-				return(1);
-		}*/
+			i++;
 	}
-	return (*(char*)(s1+i) - *(char*)(s2+i));
+	return(0);
 }
 
-int	main(void)
-{
-	char	*test1;
-	char	*test2;
+//int	main(void)
+//{
+//	char s[] = {-128, 0, 127, 0};
+//	char sCpy[] = {-128, 0, 127, 0};
+//	char s2[] = {0, 0, 127, 0};
+//	char s3[] = {0, 0, 42, 0};
 
-	test1 = "abcdefgh";
-	test2 = "zbcdefgh";
-	printf("%d\n", ft_memcmp(test1 , test2, 6));
-	printf("%d\n", memcmp(test1 , test2, 6));
-}
+//	printf("%d ", ft_memcmp(s , sCpy, 4));
+//	printf("%d\n", memcmp(s , sCpy, 4));
+//	printf("%d ", ft_memcmp(s , s2, 0));
+  //      printf("%d\n", memcmp(s , s2, 0));
+//	printf("%d ", ft_memcmp(s , s2, 1));
+  //      printf("%d\n", memcmp(s , s2, 1));
+//	printf("%d ", ft_memcmp(s2 , s, 1));
+ //     printf("%d\n", memcmp(s2 , s, 1));
+//      printf("%d ", ft_memcmp(s2 , s3, 4));
+//      printf("%d\n", memcmp(s2 , s3, 4));
+//}

@@ -6,13 +6,13 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:57:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/22 15:32:32 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:20:16 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	c_in_chain(char	*chain, char c)
+static int	c_in_chain(char	*chain, char c)
 {
 	int	i;
 
@@ -62,7 +62,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (trimed);
 }
 
-int     main(void)
+/*int     main(void)
 {
 	char	*phrase;
 	char	*trimmeur;
@@ -72,5 +72,4 @@ int     main(void)
 	trimmeur = "minut";
 	receptacle = ft_strtrim(phrase, trimmeur);
 	printf("%s\n", receptacle);
-}
-
+}*/

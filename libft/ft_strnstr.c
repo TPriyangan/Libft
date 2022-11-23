@@ -1,5 +1,4 @@
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 /*char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
@@ -39,13 +38,13 @@ char    *ft_strnstr(const char *big, const char *little, size_t len)
         return (NULL);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*botte_de_foin;
 	char	*paille;
 
 	botte_de_foin = "Jean va au bar avec Jacques";
 	paille = "bar";
-	printf("%s\n" , ft_strnstr(botte_de_foin, paille, 15));
+	printf("%s\n" , ft_strnstr(botte_de_foin, paille, 15));*/
 	/*printf("%p\n" , strnstr(botte_de_foin, paille, 15));*/
-}
+/*}*/

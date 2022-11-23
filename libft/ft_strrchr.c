@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -14,10 +13,12 @@ char	*ft_strrchr(const char *s, int c)
 			return_value = (char*)&(s[i]);
 		i++;
 	}
+	if (s[i] == c)
+		return_value = (char*)(s+i);
 	return(return_value);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*test;
 	test = "jeanjeanjeanjeanjacques";
@@ -38,7 +39,4 @@ int	main(void)
 	printf("%s\n", ft_strrchr(test , 'n'));
 	printf("%p\n", strrchr(test , 'n'));
 	printf("%s\n", strrchr(test , 'n'));
-}
-
-
-/*EDIT BIG FAIL */
+}*/

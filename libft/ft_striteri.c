@@ -6,17 +6,11 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:12:51 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/22 14:21:03 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:19:33 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
-void	ft_toupper(unsigned int i, char *s)
-{
-	s[i] = s[i] - 32;
-}
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
@@ -32,11 +26,11 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	*alphabet;
 
 	alphabet = "abcdefghijklmnopqrstuvwxyz";
 	ft_striteri(alphabet,ft_toupper);
 	printf("%s\n", alphabet);
-}
+}*/

@@ -6,12 +6,11 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:07:40 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/21 10:48:08 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/23 10:37:50 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_itoa(int n)
 {
@@ -58,9 +57,6 @@ char	*ft_itoa(int n)
 
 
 /*
- 24568/10 = 2456,8.
- 24568/10000=2,4568.
- */
 
 int	main(void)
 {
@@ -68,4 +64,4 @@ int	main(void)
 
 	test = ft_itoa(-1256);
 	printf("%s\n", test);
-}
+}*/

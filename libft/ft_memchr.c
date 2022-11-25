@@ -6,12 +6,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	i = 0;
 	printf("%d\n" ,c);
-	if (!s || n < i)
-		return(NULL);
-	while (i < n && (char *)(s+i))
+	while (i < n)
 	{
-		if (*(char*)(s+i) == c)
-			return ((int*)(s + i));
+		if (*(unsigned char*)(s+i) == (unsigned char)c)
+			return ((unsigned int*)(s + i));
 		i++;
 	}
 	return (NULL);

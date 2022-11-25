@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 09:47:14 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/23 10:01:51 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/25 10:15:35 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	size_t	i;
 
 	i = 0;
-	if (!s || n < i)
-		return;
-	while (i < n && (char *)(s + i))
+	while (i < n)
 	{
 		((char * )s)[i] = 0;
 		i++;

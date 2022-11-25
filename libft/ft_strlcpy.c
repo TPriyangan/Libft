@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:43:26 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/23 10:28:23 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/25 11:46:25 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	while (i < size)
+	while (i < size && src[i])
 	{
 		dst[i] = src[i];
 		i++;

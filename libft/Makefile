@@ -6,7 +6,7 @@
 #    By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 09:42:00 by tpriyang          #+#    #+#              #
-#    Updated: 2022/11/22 14:47:32 by tpriyang         ###   ########.fr        #
+#    Updated: 2022/11/25 10:04:40 by tpriyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
 .PHONY: clean fclean re
+
+so:
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 clean:
 	$(RM) *.o

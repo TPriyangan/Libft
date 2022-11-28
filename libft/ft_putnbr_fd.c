@@ -6,11 +6,11 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:01:57 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/23 10:44:33 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:28:01 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 static void	ft_putchar(char c, int fd)
 {
@@ -19,38 +19,41 @@ static void	ft_putchar(char c, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	diviseur;
+	long long int 	diviseur;
+	long long int	n2;
 
-	if ( n == -2147483648)
+	n2 = n;
+	if ( n2 <= -2147483648)
 	{
-		write(fd, "-2147483648", 10);
-		return;
+		write(fd, "-", 1);
+		write(fd, "2", 1);
+		n2 = 147483648;
 	}
-	if (n == 0)
+	if (n2 == 0)
 		ft_putchar('0' ,fd);
-	if (n < 0)
+	if (n2 < 0)
 	{
-		n = n * -1;
+		n2 = n2 * -1;
 		ft_putchar('-', fd);
 	}
 	diviseur = 1;
-	while (diviseur <= n)
+	while (diviseur <= n2)
 		diviseur = diviseur * 10;
 	while (diviseur > 1)
 	{
 		diviseur = diviseur/10;
-		ft_putchar((n/diviseur + '0'), fd);
-		n = n%diviseur;
+		ft_putchar((n2/diviseur + '0'), fd);
+		n2 = n2%diviseur;
 	}
 }
 
 
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	ft_putnbr_fd(1, 1);
 	printf("\n");
-	ft_putnbr_fd(11, 1);
+	ft_putnbr_fd(2147483649, 1);
 	printf("\n");
 	ft_putnbr_fd(-2147483648, 1);
 	printf("\n");

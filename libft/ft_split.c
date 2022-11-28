@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:34:33 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/23 11:02:15 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:45:22 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,6 @@ static int	ft_nbr_mots(char const *s, char c)
 	return (mot);
 }
 
-/*char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	taille;
-	size_t	i;
-	char	*ptr;
-
-	taille= 0;
-	while(s[taille])
-		taille++;
-	if (start > taille || len <= 0 || !s)
-		return(NULL);
-	i = 0;
-	ptr = (char *)malloc((len + 1) * sizeof(s));
-	while ( i < len && s[start])
-	{
-		ptr[i] = s[start +i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return(ptr);
-}*/
-
 static unsigned int	ft_lettres(char const *s, unsigned int start, char c)
 {
 	unsigned int	i;
@@ -77,20 +55,26 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 
 	mots = 0;
+	if (!s)
+		return(NULL);
 	ptr = (char **)malloc((ft_nbr_mots(s,c) + 1) * sizeof(char **));
+	if (!ptr)
+		return(NULL);
 	i = 0;
 	while(s[i])
 	{
 		while(s[i] == c && s[i])
 			i++;
-		if (s[i])
+		ptr[mots] = (char *)malloc((ft_lettres(s, i, c) + 1) * sizeof(char *));
+		if (!ptr[mots])
 		{
-			ptr[mots] = (char *)malloc((ft_lettres(s, i, c) + 1) * sizeof(char *));
-			if (!ptr[mots])
-				free(ptr[mots]);
-			else
-				ptr[mots] = ft_substr(s, i, ft_lettres(s, i , c));
-			i = i + ft_lettres(s, i ,c); 
+			free(ptr[mots]);
+			i++;
+		}
+		else
+		{
+			ptr[mots] = ft_substr(s, i, ft_lettres(s, i , c));
+			i = i + ft_lettres(s, i ,c);
 			mots++;
 		}
 	}
@@ -100,9 +84,9 @@ char	**ft_split(char const *s, char c)
 
 /*int	main(void)
 {
-	char	*test= "s0kf00ssskssssskpskjsksksssskjj1j1s2fhh22s3jkgg33s444s555s666s777s888s999s101010";
+	char	*test= "spleeeit||this|frrrrrr||mttte|||||!|";
 	char	**receptacle;
 
-	receptacle = ft_split(test, 's');
+	receptacle = ft_split(test, '|');
 	printf("result: %s %s %s %s\n", receptacle[0] , receptacle[1], receptacle[2], receptacle[10]);
 }*/

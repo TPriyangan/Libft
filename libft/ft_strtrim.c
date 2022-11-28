@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:57:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/23 10:20:16 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/28 12:10:34 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	fin;
 	char	*trimed;
 
+	if (!s1)
+		return(NULL);
 	fin = ft_strlen((char *)s1);
 	debut = 0;
 	while (s1[debut])
@@ -52,7 +54,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 			break;
 	}
 	i = 0;
-	trimed = (char *)malloc((fin - debut) * sizeof(s1));
+	trimed = (char *)malloc(((fin - debut) + 1) * sizeof(char));
+	if (!trimed)
+		return (NULL);
 	while ( debut + i < fin)
 	{
 		trimed[i] = s1[debut + i];

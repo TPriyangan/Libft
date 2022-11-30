@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:12:33 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 11:04:48 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/11/30 12:38:07 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	int	i;
 	
 	i = 0;
-	if (nmemb == SIZE_MAX || size == SIZE_MAX )
+	if (size == 0)
 		return (malloc(0));
+	if ((nmemb *size)/2 >= SIZE_MAX)
+		return(malloc(0));
 	ptr = (void *)malloc(nmemb * size);
 	if (!ptr)
 		return(NULL);

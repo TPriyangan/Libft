@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 12:59:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 11:07:13 by tpriyang         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:47:38 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@
 # include <limits.h>
 # include <ctype.h>
 # include <stddef.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list		*next;
+}t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

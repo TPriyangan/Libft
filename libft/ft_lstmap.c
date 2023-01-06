@@ -6,13 +6,13 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:14:04 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/12/02 18:05:19 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/06 10:55:33 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int     ft_lstsize(t_list *lst)
+/*static	int     ft_lstsize(t_list *lst)
 {
         int     i;
         t_list  *temp;
@@ -25,27 +25,30 @@ static	int     ft_lstsize(t_list *lst)
                 i++;
         }
         return (i);
-}
+}*/
 
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void*))
 {
-	t_list	*new_chain;
+	t_list	*current;
 	t_list	*temp;
+	t_list	*new_list;
 
-	new_chain = ((t_list*)malloc(ft_lstsize(lst) * sizeof(t_list)));
-	if(!new_chain)
-	       del(new_chain);	
-	temp = lst;
-	while(temp != NULL)
+	current = lst;
+	while (current != NULL)
 	{
-		new_chain->content = f(temp->content);
-		new_chain = new_chain->next;
+		temp = current->next;
+		if (f(current->content))
+		{
+			new_list = current;
+		}
+		else
+		{
+			del(current->content);
+			free(current);
+			return (NULL);
+		}
+		current = temp;
 	}
-	if (!new_chain)
-	{
-		return (NULL);
-	}
-	else 
-		return (new_chain);
+	return (new_list);
 }

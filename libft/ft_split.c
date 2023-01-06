@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:34:33 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/30 12:33:24 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/06 13:13:58 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**ft_split(char const *s, char c)
 	mots = 0;
 	if (!s)
 		return(NULL);
-	ptr = (char **)malloc((ft_nbr_mots(s,c) + 1) * sizeof(char **));
+	ptr = (char **)malloc((ft_nbr_mots(s,c) + 1) * sizeof(char*));
 	if (!ptr)
 		return(NULL);
 	i = 0;
@@ -75,11 +75,11 @@ char	**ft_split(char const *s, char c)
 	return (ptr);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char *test = "      split       this for   me  !       ";
 	char	**receptacle;
 
 	receptacle = ft_split(test, ' ');
 	printf("result:*%s %s %s %s %s*\n", receptacle[0], receptacle[1], receptacle[2], receptacle[3] , receptacle[4]);
-}
+}*/

@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:10:45 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 11:58:16 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/06 12:35:24 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	while (s2[j])
 		j++;
-	ptr = (char *)malloc((i+j) * sizeof(s1));
+	ptr = (char *)malloc((i+j + 1) * sizeof(char const));
 	if (!ptr)
 		return (NULL);
 	while (k < i)

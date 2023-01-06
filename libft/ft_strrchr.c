@@ -9,11 +9,11 @@ char	*ft_strrchr(const char *s, int c)
 	return_value = NULL;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return_value = (char*)&(s[i]);
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == (char)c)
 		return_value = (char*)(s+i);
 	return(return_value);
 }

@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:04:50 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 16:34:16 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:06:14 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	tsrc = ft_strlen(src);
 	while (tdst + i < size -1)
 	{
-		dst[tdst+i] = src[i];
+		dst[tdst + i] = src[i];
 		i++;
 	}
-	dst[tdst+i] = '\0';
+	dst[tdst + i] = '\0';
 	if (tdst > size)
 		return (tsrc + size);
-	return (tdst+tsrc);
+	return (tdst + tsrc);
 }

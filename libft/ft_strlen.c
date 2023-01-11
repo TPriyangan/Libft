@@ -6,16 +6,18 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:17:14 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/25 10:29:52 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:03:27 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long unsigned int	ft_strlen(const char *c)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	long unsigned int	i;
+	size_t	i;
 
 	i = 0;
-	while (c[i])
+	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }

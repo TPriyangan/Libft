@@ -6,43 +6,43 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:26:38 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 18:52:46 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:48:52 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void *ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	int	i;
 
 	if (!src && !dest)
-		return(NULL);
+		return (NULL);
 	if (dest > src)
 	{
 		i = (int)n - 1;
 		while (i >= 0)
 		{
-			((char*)dest)[i]=((char *)src)[i];
+			((char *)dest)[i] = ((char *)src)[i];
 			i--;
 		}
 	}
 	else
 	{
 		i = 0;
-		while (i <(int)n)
+		while (i < (int)n)
 		{
-			((char*)dest)[i] = ((char*)src)[i];
-			 i++;
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
 		}
 	}
-	return(dest);
+	return (dest);
 }
 
 /*int	main(void)
 {*/
 	/*char	*str1;
 	str1 = "0123456789";*/
-	char	str1[] = "0123456789";
+	//char	str1[] = "0123456789";
 	/*printf("%p\n", ft_memmove(jean, jacques, 3));*/
 	/*ft_memmove(str1+5, str1+3, 7);*/
 /*	ft_memmove(str1+2, str1+5 , 10);

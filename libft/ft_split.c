@@ -6,13 +6,13 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:34:33 by tpriyang          #+#    #+#             */
-/*   Updated: 2023/01/06 13:13:58 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:23:22 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_nbr_mots(char const *s, char c)
+static size_t	ft_nbr_mots(char const *s, char c)
 {
 	size_t	i;
 	int	mot;
@@ -65,19 +65,17 @@ char	**ft_split(char const *s, char c)
 		if (s[i])
 		{
 			ptr[mots] = ft_substr(s, i, ft_lettres(s, i , c));
-			if (!ptr[mots])
-				free(ptr[mots]);
 			i = i + ft_lettres(s, i ,c);
 			mots++;
 		}
 	}
-	ptr[mots] = '\0';
+	ptr[mots] = 0;
 	return (ptr);
 }
 
 /*int	main(void)
 {
-	char *test = "      split       this for   me  !       ";
+	char *test = "          ";
 	char	**receptacle;
 
 	receptacle = ft_split(test, ' ');

@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:43:26 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 09:58:19 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:08:14 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	taille_src;
 
 	i = 0;
-	taille_src =0;
+	taille_src = 0;
 	while (src[taille_src])
 		taille_src++;
 	if (size > 0)
@@ -30,7 +30,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		}
 		dst[i] = '\0';
 	}
-	return(taille_src);
+	return (taille_src);
 }
 
 /*int	main(void)

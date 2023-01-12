@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:31:40 by tpriyang          #+#    #+#             */
-/*   Updated: 2023/01/06 13:19:19 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:20:47 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	str = (char *)malloc((len + 1) * sizeof(s));
 	if (!str)
-		return(NULL);
+		return (NULL);
 	if (start <= ft_strlen(s))
 	{
 		while (i < len)
@@ -34,11 +34,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	str[i] = '\0';
 	return (str);
 }
-
-/*int	main(void)
-{
-	char	*alphabet;
-	
-	alphabet = "";
-	printf("%p\n" , ft_substr(alphabet, 4, 350));
-}*/

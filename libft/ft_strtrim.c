@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:57:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2022/11/28 12:10:34 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/12 12:34:46 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	c_in_chain(char	*chain, char c)
 			return (1);
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -34,30 +34,28 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*trimed;
 
 	if (!s1)
-		return(NULL);
+		return (NULL);
 	fin = ft_strlen((char *)s1);
 	debut = 0;
 	while (s1[debut])
 	{
-		if (c_in_chain((char *)set,s1[debut]))
-		{
+		if (c_in_chain((char *)set, s1[debut]))
 			debut++;
-		}
 		else
-			break;
+			break ;
 	}
 	while (fin > debut)
 	{
-		if (c_in_chain((char* )set,s1[fin - 1]))
+		if (c_in_chain((char *)set, s1[fin - 1]))
 			fin--;
 		else
-			break;
+			break ;
 	}
 	i = 0;
 	trimed = (char *)malloc(((fin - debut) + 1) * sizeof(char));
 	if (!trimed)
 		return (NULL);
-	while ( debut + i < fin)
+	while (debut + i < fin)
 	{
 		trimed[i] = s1[debut + i];
 		i++;
@@ -65,15 +63,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimed[i] = '\0';
 	return (trimed);
 }
-
-/*int     main(void)
-{
-	char	*phrase;
-	char	*trimmeur;
-	char	*receptacle;
-
-	phrase = "trimtrimtrimrrrrrimttmmmimim";
-	trimmeur = "minut";
-	receptacle = ft_strtrim(phrase, trimmeur);
-	printf("%s\n", receptacle);
-}*/

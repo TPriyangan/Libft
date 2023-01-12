@@ -6,7 +6,7 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:57:56 by tpriyang          #+#    #+#             */
-/*   Updated: 2023/01/12 12:34:46 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:32:07 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,36 @@ static int	c_in_chain(char	*chain, char c)
 	return (0);
 }
 
+static size_t	preshotdebut(char const *s1, char const *set)
+{
+	size_t	debut;
+
+	debut = 0;
+	while (s1[debut])
+	{
+		if (c_in_chain((char *)set, s1[debut]))
+			debut++;
+		else
+			break ;
+	}
+	return (debut);
+}
+
+static size_t	preshot(char const *s1, char const *set, size_t fin)
+{
+	size_t	debut;
+
+	debut = preshotdebut(s1, set);
+	while (fin > debut)
+	{
+		if (c_in_chain((char *)set, s1[fin - 1]))
+			fin--;
+		else
+			break ;
+	}
+	return (fin);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
@@ -36,21 +66,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (NULL);
 	fin = ft_strlen((char *)s1);
-	debut = 0;
-	while (s1[debut])
-	{
-		if (c_in_chain((char *)set, s1[debut]))
-			debut++;
-		else
-			break ;
-	}
-	while (fin > debut)
-	{
-		if (c_in_chain((char *)set, s1[fin - 1]))
-			fin--;
-		else
-			break ;
-	}
+	debut = preshotdebut(s1, set);
+	fin = preshot(s1, set, fin);
 	i = 0;
 	trimed = (char *)malloc(((fin - debut) + 1) * sizeof(char));
 	if (!trimed)

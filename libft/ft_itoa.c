@@ -6,11 +6,35 @@
 /*   By: tpriyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:07:40 by tpriyang          #+#    #+#             */
-/*   Updated: 2023/01/12 13:34:26 by tpriyang         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:10:33 by tpriyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*itoa_calcul(int negatif, long long i, int mult, long long n2)
+{
+	char	*dup;
+
+	dup = (char *)malloc((negatif + i + 1) * sizeof(char));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	if (negatif == 1)
+	{
+		dup[i] = '-';
+		i++;
+	}
+	while (mult >= 1)
+	{
+		dup[i] = n2 / mult + '0';
+		n2 = n2 % mult;
+		mult = mult / 10;
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
 
 char	*ft_itoa(int n)
 {
@@ -18,7 +42,7 @@ char	*ft_itoa(int n)
 	long long	i;
 	long long	negatif;
 	long long	mult;
-	char	*str;
+	char		*str;
 
 	mult = 1;
 	n2 = n;
@@ -36,19 +60,6 @@ char	*ft_itoa(int n)
 	str = (char *)malloc((negatif + i + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
-	i = 0;
-	if (negatif == 1)
-	{
-		str[i] = '-';
-		i++;
-	}
-	while (mult  >= 1)
-	{
-		str[i] =  n2 / mult +  '0';
-		n2 = n2 % mult;
-		mult= mult / 10;
-		i++;
-	}
-	str[i] = '\0';
+	str = itoa_calcul(negatif, i, mult, n2);
 	return (str);
 }
